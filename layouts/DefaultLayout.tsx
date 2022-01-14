@@ -9,7 +9,7 @@ type Prop = {
   children: ReactNode
   ogImage?: string
   ogUrl?: string
-  description?: string
+  ogDescription?: string
 }
 
 const LayoutContainer = styled.div`
@@ -18,7 +18,7 @@ const LayoutContainer = styled.div`
   height: 100%;
 `
 
-const DefaultLayout = ({ children, ogImage, ogUrl, description }: Prop) => {
+const DefaultLayout = ({ children, ogImage, ogUrl, ogDescription }: Prop) => {
   useViewport()
 
   return (
@@ -27,7 +27,7 @@ const DefaultLayout = ({ children, ogImage, ogUrl, description }: Prop) => {
         <title>{meta.title}</title>
         <meta
           name="description"
-          content={description ? description : meta.description}
+          content={ogDescription ? ogDescription : meta.description}
         />
         <meta name="viewport" content={meta.viewport} />
         <meta name="keywords" content={meta.keywords} />
@@ -48,12 +48,12 @@ const DefaultLayout = ({ children, ogImage, ogUrl, description }: Prop) => {
         <meta property="og:title" content={meta.title} />
         <meta
           property="og:description"
-          content={description ? description : meta.description}
+          content={ogDescription ? ogDescription : meta.description}
         />
         <meta property="twitter:title" content={meta.title} />
         <meta
           property="twitter:description"
-          content={description ? description : meta.description}
+          content={ogDescription ? ogDescription : meta.description}
         />
         <meta
           property="twitter:image"
@@ -62,10 +62,6 @@ const DefaultLayout = ({ children, ogImage, ogUrl, description }: Prop) => {
         <meta property="twitter:card" content={meta.card} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <LayoutContainer>{children}</LayoutContainer>
       {process.env.NEXT_PUBLIC_GA_ID && (

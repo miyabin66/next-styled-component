@@ -13,7 +13,7 @@ import { stringify } from 'querystring'
 export const createTwitterIntent = (opts: {
   url: string
   text: string
-  hashtags: string[]
+  hashtags: string
 }): string => {
   return `https://twitter.com/intent/tweet?${stringify(opts)}`
 }
