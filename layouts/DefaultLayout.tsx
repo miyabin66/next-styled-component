@@ -36,7 +36,7 @@ const DefaultLayout = ({ children, ogImage, ogUrl, ogDescription }: Prop) => {
           name="apple-mobile-web-app-title"
           content={meta.applicationName}
         />
-        <link rel="icon" type="image/png" href={meta.faviconPath} />
+        <link rel="icon" type={meta.faviconType} href={meta.faviconPath} />
         <link rel="canonical" href={meta.url} />
         <link rel="apple-touch-icon" href={meta.appleTouchIconPath} />
 
@@ -60,8 +60,6 @@ const DefaultLayout = ({ children, ogImage, ogUrl, ogDescription }: Prop) => {
           content={ogImage ? meta.url + ogImage : meta.image}
         />
         <meta property="twitter:card" content={meta.card} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Head>
       <LayoutContainer>{children}</LayoutContainer>
       {process.env.NEXT_PUBLIC_GA_ID && (
