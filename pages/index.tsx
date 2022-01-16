@@ -1,10 +1,13 @@
 import DefaultLayout from '~/layouts/DefaultLayout'
 import IndexContainer from '~/components/index/Index'
+import { IndexContextProvider } from '~/context/IndexContext'
 
 const Index = () => {
   return (
     <DefaultLayout>
-      <IndexContainer />
+      <IndexContextProvider>
+        <IndexContainer />
+      </IndexContextProvider>
     </DefaultLayout>
   )
 }
