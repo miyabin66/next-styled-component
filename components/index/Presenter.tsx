@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import color from '~/styles/color'
 
 const Container = styled.div`
   padding: 0 2rem;
@@ -20,7 +21,7 @@ const Title = styled.h1`
   font-size: 4rem;
 
   a {
-    color: #0070f3;
+    color: ${color.blue};
     text-decoration: none;
 
     &:hover,
@@ -42,7 +43,7 @@ const Description = styled.p`
 `
 
 const Code = styled.code`
-  background: #fafafa;
+  background: ${color.white};
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
@@ -69,7 +70,7 @@ const Card = styled.a`
   text-align: left;
   color: inherit;
   text-decoration: none;
-  border: 1px solid #eaeaea;
+  border: 1px solid ${color.beige};
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
@@ -77,8 +78,8 @@ const Card = styled.a`
   &:hover,
   &:focus,
   &:active {
-    color: #0070f3;
-    border-color: #0070f3;
+    color: ${color.blue};
+    border-color: ${color.blue};
   }
 
   h2 {
@@ -97,7 +98,7 @@ const Footer = styled.footer`
   display: flex;
   flex: 1;
   padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid ${color.beige};
   justify-content: center;
   align-items: center;
 

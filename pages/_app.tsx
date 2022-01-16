@@ -5,6 +5,7 @@ import { DeviceContextProvider } from '~/context/DeviceContext'
 
 const GlobalStyle = createGlobalStyle`
   /* ${reset} */
+
   html,
   body {
     padding: 0;
