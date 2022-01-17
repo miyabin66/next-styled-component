@@ -1,4 +1,4 @@
-name: CI build
+name: CI develop build
 
 # 環境変数の中身をお使いの環境に合わせて変更してください
 env:
