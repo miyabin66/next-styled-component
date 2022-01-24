@@ -4,6 +4,12 @@ const maxViewport = {
   PC: 10000,
 }
 
+export const UserAgentDevices = <const>{
+  mobile: 'mobile',
+  tablet: 'tablet',
+  pc: undefined,
+}
+
 export const DeviceTypes = <const>{
   SP: 'SP',
   Tablet: 'Tablet',
@@ -25,6 +31,14 @@ export const BreakPoint = <const>{
   },
 }
 
+export const Target = <const>{
+  blank: '_blank',
+  self: '_self',
+}
+
 export type DeviceTypes = typeof DeviceTypes[keyof typeof DeviceTypes]
 export type SizeUnit = typeof SizeUnit[keyof typeof SizeUnit]
 export type BreakPoint = typeof BreakPoint[keyof typeof BreakPoint]
+export type Target = typeof Target[keyof typeof Target]
+export type UserAgentDevices =
+  typeof UserAgentDevices[keyof typeof UserAgentDevices]

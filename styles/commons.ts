@@ -27,16 +27,3 @@ export const HideScrollBar = css`
     display: none;
   }
 `
-
-export const PushButton = css`
-  transform-origin: center;
-
-  &:active {
-    transform: scale(0.9);
-  }
-`
-
-export const ReadyFadeInFromUnder = css`
-  opacity: 0;
-  transform: translate(0, 20px);
-`

@@ -75,7 +75,7 @@ export const font = (
     };
     line-height: ${lineHeight || 'normal'};
     letter-spacing: ${letterSpacing || 'normal'};
-    font-family: Zen Old Mincho, YuMincho, Hiragino Mincho ProN, Yu Mincho, MS PMincho, serif;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   `
 }
 

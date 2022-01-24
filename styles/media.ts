@@ -11,7 +11,7 @@ const mq = (bp: MinMaxBP) => `
 
 // 横向き対応
 const orientation = (bp: MinMaxBP) => `
-@media (orientation: landscape) and (min-width: ${bp.min}px) and (max-width: ${bp.max}px)
+  @media (orientation: landscape) and (min-width: ${bp.min}px) and (max-width: ${bp.max}px)
 `
 
 const sp = mq(BreakPoint[DeviceTypes.SP])

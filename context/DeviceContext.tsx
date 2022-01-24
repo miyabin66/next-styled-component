@@ -1,11 +1,16 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext, useMemo, useState } from 'react'
 import { UAParser } from 'ua-parser-js'
-import { DeviceTypes } from '~/interfaces/enums/common'
+import {
+  DeviceTypes,
+  Target,
+  UserAgentDevices,
+} from '~/interfaces/enums/common'
 import { useHasTouchScreen } from '~/hooks/useHasTouchScreen'
 import { useIsomorphicEffect } from '~/hooks/useIsomorphicEffect'
 
 type Type = {
   deviceType: DeviceTypes
+  target: Target
 }
 
 interface UA {
@@ -16,6 +21,7 @@ interface UA {
 
 const defaultValues: Type = {
   deviceType: DeviceTypes.PC,
+  target: Target.self,
 }
 
 const DeviceContext = createContext(defaultValues)
@@ -37,6 +43,14 @@ const useValues = (): Type => {
     isPC: false,
   })
 
+  // スマホでtwitterのリンクを別タブで開いてしまうと
+  // アプリではなくWebページのtwitterが開いてしまうので
+  // PCは別タブ、それ以外はそのまま開くようにする
+  const target = useMemo(
+    () => (deviceType === DeviceTypes.PC ? '_blank' : '_self'),
+    [deviceType],
+  )
+
   // iPad proなど一部の端末はUA判定してもPCとして返ってくるので
   // タッチできるデバイスかつUAがPCのものもタブレットとして扱う
   const [isTablet, setIsTablet] = useState<boolean>(false)
@@ -44,9 +58,9 @@ const useValues = (): Type => {
   // UA判定
   isomorphicEffect(() => {
     setUA({
-      isSP: device === 'mobile',
-      isTablet: device === 'tablet',
-      isPC: device === undefined,
+      isSP: device === UserAgentDevices.mobile,
+      isTablet: device === UserAgentDevices.tablet,
+      isPC: device === UserAgentDevices.pc,
     })
   }, [device])
 
@@ -71,6 +85,7 @@ const useValues = (): Type => {
 
   return {
     deviceType,
+    target,
   }
 }
 
