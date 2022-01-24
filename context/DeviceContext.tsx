@@ -47,7 +47,7 @@ const useValues = (): Type => {
   // アプリではなくWebページのtwitterが開いてしまうので
   // PCは別タブ、それ以外はそのまま開くようにする
   const target = useMemo(
-    () => (deviceType === DeviceTypes.PC ? '_blank' : '_self'),
+    () => (deviceType === DeviceTypes.PC ? Target.blank : Target.self),
     [deviceType],
   )
 
