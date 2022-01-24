@@ -1,4 +1,4 @@
-import React from 'react'
+import { createElement, Fragment } from 'react'
 
 type GTagMethod = {
   event: [
@@ -62,12 +62,12 @@ export type SendPageViewProps = {
   pagePath?: string
 }
 
-export function sendPageView({
+export const sendPageView = ({
   id,
   pageTitle,
   pageLocation,
   pagePath,
-}: SendPageViewProps) {
+}: SendPageViewProps) => {
   try {
     if (window.gtag) {
       window.gtag('config', id, {
@@ -81,16 +81,15 @@ export function sendPageView({
   }
 }
 
-export function GTagSnippet(props: { trackingId: string }) {
-  const { trackingId } = props
-  return React.createElement(
-    React.Fragment,
+export const GTagSnippet = ({ trackingId }: { trackingId: string }) => {
+  return createElement(
+    Fragment,
     null,
-    React.createElement('script', {
+    createElement('script', {
       async: true,
       src: `https://www.googletagmanager.com/gtag/js?id=${trackingId}`,
     }),
-    React.createElement('script', {
+    createElement('script', {
       dangerouslySetInnerHTML: {
         __html: `
           window.dataLayer = window.dataLayer || [];
