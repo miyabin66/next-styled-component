@@ -1,5 +1,3 @@
-import { createElement, Fragment } from 'react'
-
 type GTagMethod = {
   event: [
     string,
@@ -36,12 +34,12 @@ type SendEventProps = {
   value?: number | string
 }
 
-export function sendGAEvent({
+export const sendGAEvent = ({
   action,
   category,
   label,
   value,
-}: SendEventProps) {
+}: SendEventProps) => {
   try {
     if (window.gtag) {
       window.gtag('event', action, {
@@ -79,26 +77,4 @@ export const sendPageView = ({
   } catch (error) {
     return error
   }
-}
-
-export const GTagSnippet = ({ trackingId }: { trackingId: string }) => {
-  return createElement(
-    Fragment,
-    null,
-    createElement('script', {
-      async: true,
-      src: `https://www.googletagmanager.com/gtag/js?id=${trackingId}`,
-    }),
-    createElement('script', {
-      dangerouslySetInnerHTML: {
-        __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag("js", new Date());
-          gtag("config", "${trackingId}");`,
-      },
-    }),
-  )
 }

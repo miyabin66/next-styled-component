@@ -42,12 +42,6 @@ export const pxVh = {
   [DeviceTypes.SP]: (px: number) => pxToVh(px, DeviceTypes.SP),
 }
 
-/**
- * @param fontSize {number} figmaの値をnumberとして渡す
- * @param fontStyleValue {number | string} figmaのCSSフォントスタイル値を渡す。
- * @returns pxの場合はnumberとして渡し、内部でemに変換して返す。'normal'などstringで渡ってきた場合はそのまま返す。
- */
-
 const calculateFontStyleValue = (
   fontSize: number,
   fontStyleValue: number | string,
@@ -56,13 +50,6 @@ const calculateFontStyleValue = (
   return isNumber ? `${Number(fontStyleValue) / fontSize}em` : fontStyleValue
 }
 
-/**
- * @param unitType {DeviceTypes | SizeUnit} デバイスや単位を指定する
- * @param fontSize {number} figmaの値をnumberとして渡す
- * @param letterSpacing {number | string} figmaのそのまま渡す。pxの値を渡したい場合はnumberとして渡し、内部でemに変換する。
- * @param lineHeight: {number | string} figmaのそのまま渡す。pxの値を渡したい場合はnumberとして渡し、内部でemに変換する
- * @returns
- */
 export const font = (
   unitType: DeviceTypes | SizeUnit,
   fontSize: Parameters<typeof calculateFontStyleValue>[0],
