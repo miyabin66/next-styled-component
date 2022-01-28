@@ -74,6 +74,7 @@ jobs:
         run: |
           echo "NEXT_PUBLIC_BASE_URL=${{ fromJson(steps.next_public.outputs.env)[env.BASE_BRANCH].BASE_URL }}" >> $GITHUB_ENV
           echo "NEXT_PUBLIC_GA_ID=${{ fromJson(steps.next_public.outputs.env)[env.BASE_BRANCH].GA_ID }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_GTM_ID=${{ fromJson(steps.next_public.outputs.env)[env.BASE_BRANCH].GTM_ID }}" >> $GITHUB_ENV
 
       - name: Build 🔨
         run: $BUILD
