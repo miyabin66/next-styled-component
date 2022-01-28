@@ -6,6 +6,7 @@ import Document, {
   NextScript,
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import { GTM_ID } from '~/utils/gtag'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -39,6 +40,17 @@ export default class MyDocument extends Document {
       <Html lang="ja">
         <Head />
         <body>
+          {GTM_ID && (
+            <noscript>
+              <iframe
+                title="google-tag-manager"
+                src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+                height="0"
+                width="0"
+                style={{ display: 'none', visibility: 'hidden' }}
+              />
+            </noscript>
+          )}
           <Main />
           <NextScript />
         </body>
