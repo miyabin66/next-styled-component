@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import color from '~/styles/color'
+import path from '~/utils/path'
 
 const Container = styled.div`
   padding: 0 2rem;
@@ -165,7 +166,12 @@ const Presenter = () => {
         >
           Powered by{' '}
           <Logo>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            <Image
+              src={require('~/assets/images/vercel.svg').default}
+              alt="Vercel Logo"
+              width={72}
+              height={16}
+            />
           </Logo>
         </a>
       </Footer>
