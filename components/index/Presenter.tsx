@@ -168,7 +168,7 @@ const Presenter = () => {
           Powered by{' '}
           <Logo>
             <LogoImage>
-              <Pictures src="vercel" alt="Vercel Logo" type={ImageType.svg} />
+              <Pictures src="vercel" alt="Vercel Logo" />
             </LogoImage>
           </Logo>
         </a>
