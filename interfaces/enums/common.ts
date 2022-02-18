@@ -31,6 +31,13 @@ export const BreakPoint = <const>{
   },
 }
 
+export const ImageType = <const>{
+  jpg: 'jpg',
+  png: 'png',
+  gif: 'gig',
+  svg: 'svg',
+}
+
 export const Target = <const>{
   blank: '_blank',
   self: '_self',
@@ -39,6 +46,7 @@ export const Target = <const>{
 export type DeviceTypes = typeof DeviceTypes[keyof typeof DeviceTypes]
 export type SizeUnit = typeof SizeUnit[keyof typeof SizeUnit]
 export type BreakPoint = typeof BreakPoint[keyof typeof BreakPoint]
+export type ImageType = typeof ImageType[keyof typeof ImageType]
 export type Target = typeof Target[keyof typeof Target]
 export type UserAgentDevices =
   typeof UserAgentDevices[keyof typeof UserAgentDevices]
