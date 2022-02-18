@@ -1,7 +1,5 @@
 import styled from 'styled-components'
-import Pictures from '../common/Pictures'
 import color from '~/styles/color'
-import { ImageType } from '~/interfaces/enums/common'
 
 const Container = styled.div`
   padding: 0 2rem;
@@ -117,7 +115,7 @@ const Logo = styled.span`
   margin-left: 0.5rem;
 `
 
-const LogoImage = styled.div`
+const Image = styled.img`
   width: 72px;
   height: 16px;
 `
@@ -167,9 +165,7 @@ const Presenter = () => {
         >
           Powered by{' '}
           <Logo>
-            <LogoImage>
-              <Pictures src="vercel" alt="Vercel Logo" type={ImageType.svg} />
-            </LogoImage>
+            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </Logo>
         </a>
       </Footer>
