@@ -1,15 +1,6 @@
-const basePath = '~/assets'
-import a from '~/assets/images/vercel.svg'
+const basePath = '/assets'
 
-const getPath = (dir: string, path: string) => {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  // const i = require(`${basePath}/${dir}/${path}`)
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  // console.log()
-  const b = `${basePath}/images/vercel.svg`
-  console.log(require(b).default as any)
-  return a
-}
+const getPath = (dir: string, path: string) => `${basePath}/${dir}${path}`
 
 const path = {
   image: (path: string) => getPath('images', path),
