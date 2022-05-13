@@ -9,8 +9,7 @@ export default class Persistence<T> {
     return new ctor()
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private _isT(arg: any): arg is T {
+  private _isT(arg: unknown): arg is T {
     return typeof arg === typeof this._type
   }
 
@@ -33,12 +32,12 @@ export default class Persistence<T> {
     }
   }
 
-  public set(value: T): void {
-    if (value == null) return
+  public set = (value: T): void => {
+    if (!value) return
     window.localStorage.setItem(this.resource, JSON.stringify(value))
   }
 
-  public remove(): void {
+  public remove = (): void => {
     window.localStorage.removeItem(this.resource)
   }
 }
