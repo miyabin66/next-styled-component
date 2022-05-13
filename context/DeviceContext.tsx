@@ -71,16 +71,9 @@ const useValues = (): Type => {
 
   // デバイス判定
   isomorphicEffect(() => {
-    const device = () => {
-      if (ua.isSP) {
-        return DeviceTypes.SP
-      } else if (isTablet) {
-        return DeviceTypes.Tablet
-      } else {
-        return DeviceTypes.PC
-      }
-    }
-    setDeviceType(device())
+    setDeviceType(
+      ua.isSP ? DeviceTypes.SP : isTablet ? DeviceTypes.Tablet : DeviceTypes.PC,
+    )
   }, [isTablet, ua])
 
   return {
