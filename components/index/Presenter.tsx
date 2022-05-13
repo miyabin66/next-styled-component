@@ -19,7 +19,6 @@ const Title = styled.h1`
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
-  font-weight: bold;
 
   a {
     color: ${colors.blue};
@@ -86,7 +85,6 @@ const Card = styled.a`
   h2 {
     margin: 0 0 1rem 0;
     font-size: 1.5rem;
-    font-weight: bold;
   }
 
   p {
