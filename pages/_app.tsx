@@ -8,7 +8,7 @@ import { DeviceContextProvider } from '~/context/DeviceContext'
 import { GA_ID, GTM_ID, sendGAPageView, sendGTMPageView } from '~/utils/gtag'
 
 const GlobalStyle = createGlobalStyle`
-  /* ${reset} */
+  ${reset}
 
   html,
   body {
